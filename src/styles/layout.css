@@ -1,0 +1,136 @@
+
+box-l {
+    display: block;
+    padding: var(--s1);
+    border-width: var(--border-thin);
+    outline: var(--border-thin) solid transparent;
+    outline-offset: calc(var(--border-thin)*-1);
+}
+
+center-l {
+    display: block;
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--measure);
+}
+
+cluster-l > * {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: calc(var(--s1)/2*-1);
+}
+
+cluster-l > * > * {
+    margin: calc(var(--s1)/2);
+}
+
+cover-l {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: var(--s1);
+}
+
+frame-l {
+    display: block;
+    position: relative;
+    padding-bottom: 66.66667%
+}
+
+frame-l > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+frame-l > img, frame-l > video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+grid-l {
+    display: grid;
+    grid-gap: var(--s1);
+    align-content: start;
+    grid-template-columns: 100%;
+}
+
+image-l {
+    display: block;
+}
+
+image-l:after {
+    content: "";
+    display: block;
+    border: var(--border-thin) solid var(--color-dark);
+    background-image: paint(image-cross);
+}
+
+sidebar-l > * {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+sidebar-l > * > * {
+    flex-grow: 1;
+}
+
+stack-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+stack-l > * + * {
+    margin-top: var(--s1);
+}
+
+switcher-l {
+    display: block;
+}
+
+switcher-l > * {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+switcher-l > * > * {
+    flex-basis: calc((var(--measure) - 100%)*999);
+    flex-grow: 1;
+}
+
+text-l {
+    display: block;
+}
+
+text-l span {
+    display: inline-block;
+    color: transparent;
+    position: relative;
+    pointer-events: none;
+}
+
+text-l span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - var(--border-thin)/2);
+    bottom: calc(50% - var(--border-thin)/2);
+    background-color: var(--color-dark);
+}
+
+words-l {
+    font-family: var(--font-plain);
+}
+

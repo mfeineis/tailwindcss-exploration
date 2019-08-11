@@ -1,7 +1,14 @@
 @import "tailwindcss/base";
+@import "./styles/base-overrides.css";
+
 @import "tailwindcss/components";
 
-@import "./button.css";
+@import "./styles/modular-scale.css";
+@import "./styles/axioms.css";
+@import "./styles/boxes.css";
+@import "./styles/button.css";
+@import "./styles/layout.css";
+@import "./styles/units.css";
 
 @import "tailwindcss/utilities";
 

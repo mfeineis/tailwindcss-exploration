@@ -3,13 +3,73 @@
 <head>
     <meta charset="utf-8">
     <title>Tailwind Playground</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="dist/main.css" type="text/css">
 </head>
 <body>
-    <div id="root">
-        <pre>ROOT</pre>
-        <button class="btn btn-blue">Button</button>
-    </div>
+    <cover-l>
+        <h1>Welcome!</h1>
+    </cover-l>
+    <sidebar-l space="0">
+        <div>
+            <stack-l>
+                <h2>Sidebar</h2>
+                <ol>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ol>
+            </stack-l>
+            <stack-l>
+                <h2>Some Heading</h2>
+                <p>
+                    Some text that should be stacked under the button
+                </p>
+                <h3>Another Heading</h3>
+                <div class="text-right">
+                    <button class="btn btn-blue">Button</button>
+                </div>
+                <h4>Third Heading</h4>
+                <p>More Text</p>
+                <sidebar-l space="0" side="right">
+                    <div>
+                        <input type="text" class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal">
+                        <button class="btn btn-blue">Another</button>
+                    </div>
+                </sidebar-l>
+                <grid-l>
+                    <center-l>
+                        <div id="root">
+                            <pre>ROOT</pre>
+                        </div>
+                    </center-l>
+                    <center-l>
+                        <pre>NON-ROOT</pre>
+                    </center-l>
+                    <words-l></words-l>
+                </grid-l>
+                <switcher-l>
+                    <div>
+                        <h2>Switcher?</h2>
+                        <p>Some content</p>
+                    </div>
+                    <div>
+                        <text-l></text-l>
+                    </div>
+                </switcher-l>
+                <box-l>
+                    Some box?
+                    <image-l></image-l>
+                </box-l>
+                <cluster-l>
+                    <div>
+                        <pre>Cluster?</pre>
+                    </div>
+                </cluster-l>
+            </stack-l>
+        </div>
+    </sidebar-l>
     <script src="dist/app.js"></script>
     <script src="dist/main.js"></script>
 </body>
