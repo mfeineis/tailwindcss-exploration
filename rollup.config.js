@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV === "production";
 export default (async () => ({
     input: "src/main.js",
     output: {
-        file: "dist/app.js",
+        file: "dist/main.js",
         format: "iife",
         name: "App",
     },

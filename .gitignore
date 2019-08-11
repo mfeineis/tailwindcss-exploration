@@ -1,6 +1,16 @@
 dist/
 private/
 
+assets/card-left.jpg
+assets/card-top.jpg
+assets/jonathan.jpg
+
+/elm
+# elm-package generated files
+elm-stuff
+# elm-repl generated files
+repl-temp-*
+
 # Logs
 logs
 *.log

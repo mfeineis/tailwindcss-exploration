@@ -7,21 +7,30 @@
   "author": "Martin Feineis <mfeineis@users.noreply.github.com>",
   "license": "BSD-3-Clause",
   "private": true,
+  "browserslist": [
+    "ie 11"
+  ],
   "scripts": {
-    "build": "NODE_ENV=production rollup --config rollup.config.js",
+    "build": "yarn run build-elm && NODE_ENV=production rollup --config rollup.config.js",
+    "build-elm": "./elm make src/App.elm --output dist/app.js --optimize && NODE_ENV=production terser dist/app.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | terser --mangle --output=dist/app.js",
+    "debug-elm": "./elm make src/App.elm --output dist/app.js",
     "start": "serve -p 5000",
     "watch": "NODE_ENV=development rollup --config rollup.config.js --watch"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "^9.6.1",
+    "browserslist": "^4.6.6",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.7.0",
     "rollup": "^1.19.4",
     "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "serve": "^11.1.0",
-    "tailwindcss": "^1.1.1"
+    "tailwindcss": "^1.1.1",
+    "terser": "^4.1.4"
   }
 }
