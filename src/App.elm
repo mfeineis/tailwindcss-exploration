@@ -1,10 +1,21 @@
 module App exposing (main)
 
 import Browser
+import Debounce
 import Html exposing (Html, div, img, p, span, text)
 import Html.Attributes as Attr exposing (alt, attribute, class, src, title)
 import Svg exposing (svg)
 import Svg.Attributes exposing (d, viewBox)
+import Task exposing (Task)
+import Util exposing ((=>))
+import EffectManager
+--import CmdEffectManager
+--import SubEffectManager
+--import WebSocket
+
+
+type Msg
+    = Echo String
 
 
 view : {} -> Html msg
@@ -28,7 +39,7 @@ view _ =
                     [ text "#winter" ]
                 ]
             ]
-            , div
+        , div
             [ class "max-w-sm w-full lg:max-w-full lg:flex" ]
             [ div [ class "h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden", attribute "style" "background-image: url('/assets/card-left.jpg')", title "Woman holding a mug" ]
                 []
@@ -59,10 +70,30 @@ view _ =
         ]
 
 
+--ping : String -> Cmd msg
+--ping =
+--    WebSocket.send "ws://echo.websocket.org"
+
+debounceAttempt : (Result x a -> msg) -> Task x a -> Cmd msg
+debounceAttempt =
+    Debounce.debounce "query" 500
+
+
 main : Program () {} ()
 main =
-    Browser.sandbox
-        { init = {}
-        , update = \_ model -> model
+    Browser.element
+        { init = \_ -> {} => [ debounceAttempt (\result -> ()) (Task.succeed ()), EffectManager.start (\result -> ()) (Task.succeed ()) {-ping "Hello!"-} ]
+        , subscriptions =
+            \_ ->
+                EffectManager.on (\result -> ())
+            --\_ ->
+            --    WebSocket.listen "ws://echo.websocket.org" Echo
+        , update =
+            \msg model ->
+                --let
+                --    _ = Debug.log "msg" (Debug.toString msg)
+                --    _ = Debug.log "Math.floor" (Util.floor 3.14159265)
+                --in
+                model => []
         , view = view
         }
